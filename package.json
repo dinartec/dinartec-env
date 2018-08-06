@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "A personal JavaScript development environment, referenced from a Plural Sight course by Cory House",
   "scripts": {
-    "prestart": "node buildScripts/startMessage.js",
-    "start": "node buildScripts/srcServer.js",
+    "prestart": "babel-node buildScripts/startMessage.js",
+    "start": "babel-node buildScripts/srcServer.js",
     "open:src": "node buildScripts/srcServer.js",
+    "build": "babel src -d lib",
     "test": "echo \"Error: no test specified\" && exit 1",
     "security-check": "npm audit",
     "share": "now"
@@ -19,6 +20,7 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-latest": "^6.24.1",
     "babel-register": "^6.26.0",
     "chai": "^4.1.2",
