@@ -4,9 +4,10 @@
   "description": "A personal JavaScript development environment, referenced from a Plural Sight course by Cory House",
   "scripts": {
     "prestart": "babel-node buildScripts/startMessage.js",
-    "start": "babel-node buildScripts/srcServer.js",
-    "open:src": "node buildScripts/srcServer.js",
-    "build": "babel src -d lib",
+    "start": "npm-run-all --parallel open:src lint:watch",
+    "open:src": "babel-node buildScripts/srcServer.js",
+    "lint": "esw webpack.config.* src buildScripts",
+    "lint:watch": "npm run lint -- --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "security-check": "npm audit",
     "share": "now"

@@ -11,7 +11,7 @@ numeral.register('locale', 'ni', {
         billion: 'b',
         trillion: 't'
     },
-    ordinal : function (number) {
+    ordinal : function () {
         return 'o';
     },
     currency: {
