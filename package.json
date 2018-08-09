@@ -8,9 +8,11 @@
     "open:src": "babel-node buildScripts/srcServer.js",
     "lint": "esw webpack.config.* src buildScripts",
     "lint:watch": "npm run lint -- --watch",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "security-check": "npm audit",
-    "share": "now"
+    "share": "now",
+    "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
+    "test:watch": "npm run test -- --watch"
+
   },
   "author": "Carlos Dinarte",
   "license": "MIT",
