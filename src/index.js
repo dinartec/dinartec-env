@@ -1,26 +1,17 @@
-import numeral from 'numeral';
+import {getUsers} from './api/userApi';
 
-numeral.register('locale', 'ni', {
-    delimiters: {
-        thousands: ',',
-        decimal: '.'
-    },
-    abbreviations: {
-        thousand: 'k',
-        million: 'm',
-        billion: 'b',
-        trillion: 't'
-    },
-    ordinal : function () {
-        return 'o';
-    },
-    currency: {
-        symbol: 'C$'
-    }
+getUsers().then( result => {
+    let userBody ="";
+
+    result.forEach(user => {
+        userBody += `<tr>
+        <td><a href="#" data-id="${user.id}" class="deleteUser">Delete</a></td>
+        <td>${user.id}</td>
+        <td>${user.firstName}</td>
+        <td>${user.lastName}</td>
+        <td>${user.email}</td>
+        </tr>`
+    });
+
+    global.document.getElementById('users').innerHTML = userBody;
 });
-
-// switch between locales
-numeral.locale('ni');
-
-const newValue = numeral(1000).format('$0,0.0');
-console.log(`In cordobas, the new value is ${newValue}`);

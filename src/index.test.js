@@ -15,10 +15,10 @@ describe('Our first test', () => {
 });
 
 
-describe('First DOM test', () => {
-    it('should say "Hello World!"', (done) => {
+describe('index.html', () => {
+    it('should say "Users"', (done) => {
         const h1 = window.document.querySelector("h1");
-        expect(h1.innerHTML).to.equal("Hello World!");
+        expect(h1.innerHTML).to.equal("Users");
         done();
     });
 });
