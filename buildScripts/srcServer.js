@@ -11,21 +11,21 @@ const app = express();
 const compiler = webpack(config);
 
 app.use(require('webpack-dev-middleware')(compiler, {
-    noInfo: true,
-    publicPath: config.output.publicPath
+  noInfo: true,
+  publicPath: config.output.publicPath
 }));
 
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, '../src/index.html'));
+  res.sendFile(path.join(__dirname, '../src/index.html'));
 });
 
-app.get('/users', function(req, res) {
-    res.json([
-        {"id":1,"firstName":"Tammy","LastName":"Jones","email":"tam.j@gmail.com"},
-        {"id":2,"firstName":"Doctor","LastName":"Who","email":"doowhoo@hotmail.com"},
-        {"id":3,"firstName":"Lila","LastName":"Sawl","email":"lilsawl@yahoo.com"}
-    ]);
-});
+// app.get('/users', function(req, res) {
+//     res.json([
+//         {"id":1,"firstName":"Tammy","LastName":"Jones","email":"tam.j@gmail.com"},
+//         {"id":2,"firstName":"Doctor","LastName":"Who","email":"doowhoo@hotmail.com"},
+//         {"id":3,"firstName":"Lila","LastName":"Sawl","email":"lilsawl@yahoo.com"}
+//     ]);
+// });
 
 app.listen(port, function(err) {
     if (err) {
